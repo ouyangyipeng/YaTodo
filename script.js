@@ -1,4 +1,16 @@
-document.addEventListener('DOMContentLoaded', function() {
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/code_final/sw.js')
+      .then(registration => {
+        console.log('ServiceWorker注册成功:', registration.scope);
+      })
+      .catch(error => {
+        console.log('ServiceWorker注册失败:', error);
+      });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
     // DOM 元素
     const taskInput = document.getElementById('taskInput');
     const addTaskBtn = document.getElementById('addTask');
