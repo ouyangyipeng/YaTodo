@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YaTodo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>YaTodo</h1>
+        </header>
+        
+        <div class="task-input-container">
+            <input type="text" id="taskInput" placeholder="添加新任务...">
+            <button id="addTask">添加</button>
+        </div>
+        
+        <div class="controls">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="搜索任务...">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="sort-container">
+                <label for="sortSelect">排序方式:</label>
+                <select id="sortSelect">
+                    <option value="dateAdded">添加日期</option>
+                    <option value="alphabetical">字母顺序</option>
+                    <option value="completed">完成状态</option>
+                </select>
+            </div>
+            
+            <div class="filter-container">
+                <label for="filterSelect">显示:</label>
+                <select id="filterSelect">
+                    <option value="all">全部</option>
+                    <option value="active">未完成</option>
+                    <option value="completed">已完成</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="tasks-container">
+            <h2>任务列表 <span id="taskCount">0</span></h2>
+            <ul id="taskList"></ul>
+        </div>
+    </div>
+    
+    <!-- 用于编辑任务的模态框 -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>编辑任务</h2>
+            <input type="text" id="editTaskInput">
+            <button id="saveEdit">保存</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
